@@ -1,0 +1,21 @@
+{
+    "time_range": {
+        "range": "300"  // Time range in seconds (optional)
+    },
+    "clients": {
+        "client1": {
+            "base_url": "https://api.example.com",  // Base URL for the client's API
+            "queries": {
+                "Widget Title 1": "search_query_1",  // Query for the first widget
+                "Widget Title 2": "search_query_2"   // Query for the second widget
+            }
+        },
+        "client2": {
+            "base_url": "https://api.anotherexample.com",  // Base URL for another client's API
+            "queries": {
+                "Widget Title 3": "search_query_3",  // Query for the third widget
+                "Widget Title 4": "search_query_4"   // Query for the fourth widget
+            }
+        }
+    }
+}
