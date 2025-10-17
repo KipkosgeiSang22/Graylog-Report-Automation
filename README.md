@@ -3,14 +3,9 @@
 This Python script automates the retrieval, sanitization, correlation, and export of log data from multiple clients via Graylog's REST API. It reads queries from config.json, transforms and correlates log events, and exports structured Excel files—one per client.
 
 ⚙️ Key Technologies
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
-|  |  | 
+
+ <img width="853" height="477" alt="image" src="https://github.com/user-attachments/assets/1993827f-e406-430b-a621-29040b7c0ae4" />
+
 
 
 
