@@ -1,6 +1,6 @@
-📄 Technical Documentation: Async Log Export and Correlation Script
-🧭 Overview
-This Python script automates the retrieval, sanitization, correlation, and export of log data from multiple clients via Graylog's REST API. It reads queries from config.json, transforms and correlates log events, and exports structured Excel files—one per client.
+📄** Technical Documentation: Async Log Export and Correlation Script**
+-🧭 Overview
+-This Python script automates the retrieval, sanitization, correlation, and export of log data from multiple clients via Graylog's REST API. It reads queries from config.json, transforms and correlates log events, and exports structured Excel files—one per client.
 
 
 
