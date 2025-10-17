@@ -91,6 +91,7 @@ Reads from config.json:
     }
   }
 }
+<img width="943" height="549" alt="image" src="https://github.com/user-attachments/assets/fcc72dbd-d735-4216-8de5-671030435442" />
 
 
 <img width="984" height="649" alt="image" src="https://github.com/user-attachments/assets/dfabd6c9-2707-48ab-aedf-a5bd62928359" />
