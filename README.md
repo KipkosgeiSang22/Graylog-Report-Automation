@@ -4,7 +4,8 @@ This Python script automates the retrieval, sanitization, correlation, and expor
 
 ⚙️ Key Technologies
 
- <img width="853" height="477" alt="image" src="https://github.com/user-attachments/assets/1993827f-e406-430b-a621-29040b7c0ae4" />
+<img width="943" height="580" alt="image" src="https://github.com/user-attachments/assets/476ebf7d-e467-46dd-a873-d14cfd9866f3" />
+
 
 
 
@@ -88,17 +89,8 @@ Reads from config.json:
 }
 
 
+<img width="984" height="649" alt="image" src="https://github.com/user-attachments/assets/dfabd6c9-2707-48ab-aedf-a5bd62928359" />
 
-🧠 Core Functions
-|  |  | 
-| convert_utc_to_local() |  | 
-| correlate_events() |  | 
-| extract_host_and_ip() |  | 
-| sanitize_value() |  | 
-| sanitize_sheet_name() |  | 
-| fetch_data() |  | 
-| process_client() |  | 
-| main() | asyncio.gather | 
 
 
 
