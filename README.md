@@ -72,7 +72,11 @@ The script relies on two JSON files for dynamic configuration:
 🔑 Authentication
 The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the ENCODED_AUTH_STRING variable in the main script:
 
-python
+## 🔑 Authentication
+
+The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the `ENCODED_AUTH_STRING` variable in the main script:
+
+```python
 # In the Python script:
 ENCODED_AUTH_STRING = 'UmVwb3J0Ok1QZHVzVHJQajFtRWFUUUV5YUtwdzlQUDZHTXJONA==' 
 HEADERS = { 
@@ -80,9 +84,7 @@ HEADERS = {
     # ... other headers
 }
 
-Run
-
-Execution
+🏃 Execution
 Run the script from your terminal:
 
 bash
