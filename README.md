@@ -67,30 +67,26 @@ The script relies on two JSON files for dynamic configuration:
         "timezone": "Africa/Nairobi"
     }
    }
+   
 
-
-🔑 Authentication
-The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the ENCODED_AUTH_STRING variable in the main script:
 
 ## 🔑 Authentication
 
 The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the `ENCODED_AUTH_STRING` variable in the main script:
 
-```python
-# In the Python script:
-ENCODED_AUTH_STRING = 'UmVwb3J0Ok1QZHVzVHJQajFtRWFUUUV5YUtwdzlQUDZHTXJONA==' 
-HEADERS = { 
+                  ```python
+    # In the Python script:
+    ENCODED_AUTH_STRING = 'UmVwb3J0Ok1QZHVzVHJQajFtRWFUUUV5YUtwdzlQUDZHTXJONA==' 
+    HEADERS = { 
     'Authorization': f'Basic {ENCODED_AUTH_STRING}', 
     # ... other headers
-}
+    }
 
 🏃 Execution
 Run the script from your terminal:
 
 bash
 python <script_filename>.py
-
-Output: One Excel file (e.g., ClientA_Name.xlsx) will be generated for each client, containing a separate sheet for every query.
 
 🧪 Core Logic & Functions
 Data Pipeline Flow
