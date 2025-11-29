@@ -56,16 +56,18 @@ The script relies on two JSON files for dynamic configuration:
        }
    }
 
-time.json: Specifies the absolute time window and the local timezone.
 
-json
-{
+2. **time.json**:Specifies the absolute time window and the local timezone.
+
+   ```json
+   {
     "time_range": {
         "from": "2025-01-01 00:00:00",
         "to": "2025-01-31 23:59:59",
         "timezone": "Africa/Nairobi"
     }
-}
+   }
+
 
 🔑 Authentication
 The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the ENCODED_AUTH_STRING variable in the main script:
