@@ -34,28 +34,27 @@ The project is built on Python's asynchronous ecosystem, enabling massive parall
   ```bash
   pip install aiohttp pandas openpyxl pytz
 
-## Configuration Files
+## 📁 Configuration Files
 
 The script relies on two JSON files for dynamic configuration:
 
-### config.json
-Defines the API base URL, search queries, and optional IP lookup tables for each client.
+1. **config.json**: Defines the API base URL, search queries, and optional IP lookup tables for each client.
 
-```json
-{
-    "clients": {
-        "ClientA_Name": {
-            "base_url": "https://graylog.example.com",
-            "queries": {
-                "Successful RDP Logon (Different": "action:rdp AND success:true",
-                "Account Lockouts": "event_id:4740 AND result:locked"
-            },
-            "ip_lookup": {
-                "host-server-01": "10.0.0.1" 
-            }
-        }
-    }
-}
+   ```json
+   {
+       "clients": {
+           "ClientA_Name": {
+               "base_url": "https://graylog.example.com",
+               "queries": {
+                   "Successful RDP Logon (Different": "action:rdp AND success:true",
+                   "Account Lockouts": "event_id:4740 AND result:locked"
+               },
+               "ip_lookup": {
+                   "host-server-01": "10.0.0.1" 
+               }
+           }
+       }
+   }
 
 time.json: Specifies the absolute time window and the local timezone.
 
@@ -68,7 +67,7 @@ json
     }
 }
 
-Authentication
+🔑 Authentication
 The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the ENCODED_AUTH_STRING variable in the main script:
 
 python
