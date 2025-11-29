@@ -89,19 +89,18 @@ Run the script from your terminal:
     python <script_filename>.py
 
 🧪 Core Logic & Functions
-Data Pipeline Flow
 
 ## 🧪 Data Pipeline Flow
 
 | Step       | Description                                                                                     |
 |------------|-------------------------------------------------------------------------------------------------|
-| Load       | `main()` reads `config.json` and `time.json`.                                                 |
-| Convert    | Local time range is converted to UTC ISO format.                                              |
-| Orchestrate| `asyncio.gather` launches multiple `process_client` coroutines concurrently.                   |
-| Fetch (Async) | `fetch_data_batch` makes concurrent API calls for a client's queries.                      |
+| Load               | `main()` reads `config.json` and `time.json`.                                                 |
+| Convert            | Local time range is converted to UTC ISO format.                                              |
+| Orchestrate        | `asyncio.gather` launches multiple `process_client` coroutines concurrently.                   |
+| Fetch (Async)      | `fetch_data_batch` makes concurrent API calls for a client's queries.                      |
 | Transform  | Logs are sanitized, fields are filtered to `REQUIRED_FIELDS`, and UTC timestamps are converted to local time via `convert_utc_to_local`. |
 | Correlate (Pandas) | `correlate_events` groups and aggregates messages.                                   |
-| Export (Threaded) | `write_to_excel` is offloaded to the `ThreadPoolExecutor` to perform the blocking file I/O operations without stopping the asynchronous processing of other clients. |
+| Export (Threaded)  | `write_to_excel` is offloaded to the `ThreadPoolExecutor` to perform the blocking file I/O operations without stopping the asynchronous processing of other clients. |
 
 ## 🔑 Critical Functions
 
