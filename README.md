@@ -85,8 +85,8 @@ The script uses HTTP Basic Authentication. The Base64-encoded credential string 
 🏃 Execution
 Run the script from your terminal:
 
-bash
-python <script_filename>.py
+    ```bash
+    python <script_filename>.py
 
 🧪 Core Logic & Functions
 Data Pipeline Flow
