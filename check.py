@@ -50,17 +50,15 @@ def convert_utc_to_local(utc_timestamp, local_tz_str='Africa/Nairobi'):
     the API is inconsistent with TZ info.
     """
     try:
-        # 1. Parse the time. fromisoformat is best practice.
-        # We replace Z/+00:00 just to standardize the input string for parsing.
+        # Replace Z/+00:00 just to standardize the input string for parsing.
         dt_obj = datetime.fromisoformat(utc_timestamp.replace("Z", "+00:00"))
         
-        # 2. CRITICAL CHECK: Ensure the time is aware. If it's naive, assume it's UTC.
+        #  Ensure the time is aware. If it's naive, assume it's UTC.
         # This prevents the 'Not naive datetime' error while fixing the double shift.
         if dt_obj.tzinfo is None:
             # If the object is naive, explicitly set it to be UTC.
             utc_time = pytz.utc.localize(dt_obj)
         else:
-            # If it's already aware (the cause of the previous error), normalize it to UTC.
             utc_time = dt_obj.astimezone(pytz.utc)
         
         # 3. Convert from the confirmed UTC time to the target local timezone.
@@ -77,7 +75,7 @@ def convert_local_time_to_utc(local_time_str, local_tz_str):
     try:
         local_tz = pytz.timezone(local_tz_str)
         
-        # Determine format based on structure (Handles 'T' from Streamlit or space/no space)
+
         if 'T' in local_time_str and '.' in local_time_str:
              format_str = "%Y-%m-%dT%H:%M:%S.%f"
         elif 'T' in local_time_str:
@@ -85,7 +83,7 @@ def convert_local_time_to_utc(local_time_str, local_tz_str):
         elif ' ' in local_time_str:
              format_str = "%Y-%m-%d %H:%M:%S"
         else:
-            # Fallback for simpler API/non-spaced inputs
+
             format_str = "%Y-%m-%d %H:%M:%S" 
             
         naive_dt = datetime.strptime(local_time_str, format_str)
