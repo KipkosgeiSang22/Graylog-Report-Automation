@@ -378,6 +378,11 @@ async def main():
     # Maximum 10 threads working on Excel I/O tasks
     with ThreadPoolExecutor(max_workers=10) as executor: 
         for client_name, data in clients_data['clients'].items():
+            env_key = data.get('base_url_env')
+            base_url = os.environ.get(env_key)
+            if not base_url:
+                raise EnvironmentError(f"'{env_key}' is not set in .env for client '{client_name}'.")
+            data['base_url'] = base_url
             data['start_time'] = start_time_utc
             data['end_time'] = end_time_utc
             tasks.append(process_client(client_name, data, executor))
