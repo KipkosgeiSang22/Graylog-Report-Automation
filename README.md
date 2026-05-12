@@ -59,7 +59,7 @@ cp .env.example .env
 
 The script relies on two JSON files for dynamic configuration:
 
-1. **config.json**: Defines the API base URL, search queries, and optional IP lookup tables for each client.
+1. **config.json**:Defines the env variable key for the API URL, search queries, and optional IP lookup tables per client. Note that `base_url_env` holds the **name** of the environment variable, not the URL itself..
 
    ```json
    {
