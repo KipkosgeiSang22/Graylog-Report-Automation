@@ -1,7 +1,7 @@
 {
-    "Graylog Instances": {
+    "clients": {
         "Instance one": {
-            "base_url": "GRAYLOG_INSTANCE_ONE_URL",
+            "base_url_env": "GRAYLOG_INSTANCE_ONE_URL",
             "queries": {
                 "Widget Title 1": "search_query_1",
                 "Widget Title 2": "search_query_2"
@@ -9,7 +9,7 @@
             "ip_lookup": {}
         },
         "Instance two": {
-            "base_url": "GRAYLOG_INSTANCE_TWO_URL",
+            "base_url_env": "GRAYLOG_INSTANCE_TWO_URL",
             "queries": {
                 "Widget Title 3": "search_query_3",
                 "Widget Title 4": "search_query_4"
