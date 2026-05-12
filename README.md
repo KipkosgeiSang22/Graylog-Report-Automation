@@ -34,6 +34,27 @@ The project is built on Python's asynchronous ecosystem, enabling massive parall
   ```bash
   pip install aiohttp pandas openpyxl pytz
 
+  ## 🔐 Environment Variables
+
+The script uses a `.env` file to store sensitive credentials and server URLs securely. Create a `.env` file in the same directory as the script:
+
+```env
+# Graylog Authentication (Base64-encoded "username:password")
+GRAYLOG_AUTH_TOKEN=your_base64_encoded_credentials_here
+
+# Graylog Instance URLs (one per client defined in config.json)
+GRAYLOG_INSTANCE_ONE_URL=https://graylog.example.com
+GRAYLOG_INSTANCE_TWO_URL=https://graylog.anotherexample.com
+```
+
+> ⚠️ **Never commit `.env` to version control.** Add it to `.gitignore` immediately.
+
+A `.env.example` file is provided as a safe template — copy it and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
 ## 📁 Configuration Files
 
 The script relies on two JSON files for dynamic configuration:
@@ -44,13 +65,13 @@ The script relies on two JSON files for dynamic configuration:
    {
        "clients": {
            "ClientA_Name": {
-               "base_url": "https://graylog.example.com",
+               "base_url_env": "GRAYLOG_INSTANCE_ONE_URL",
                "queries": {
                    "Successful RDP Logon (Different": "action:rdp AND success:true",
                    "Account Lockouts": "event_id:4740 AND result:locked"
                },
                "ip_lookup": {
-                   "host-server-01": "10.0.0.1" 
+                   "host-server-01": "10.0.0.1"
                }
            }
        }
@@ -72,15 +93,17 @@ The script relies on two JSON files for dynamic configuration:
 
 ## 🔑 Authentication
 
-The script uses HTTP Basic Authentication. The Base64-encoded credential string must be placed in the `ENCODED_AUTH_STRING` variable in the main script:
+The script uses HTTP Basic Authentication via environment variables — credentials are **never hardcoded** in the script.
 
-                  ```python
-    # In the Python script:
-    ENCODED_AUTH_STRING = '' 
-    HEADERS = { 
-    'Authorization': f'Basic {ENCODED_AUTH_STRING}', 
-    # ... other headers
-    }
+1. Base64-encode your Graylog `username:password`:
+```bash
+   echo -n "username:password" | base64
+```
+2. Place the result in your `.env` file:
+```env
+   GRAYLOG_AUTH_TOKEN=dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+The script loads this automatically at startup and raises a clear error if the variable is missing.
 
 🏃 Execution
 Run the script from your terminal:
