@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import asyncio
 import aiohttp
 import pandas as pd
@@ -10,9 +12,12 @@ from aiohttp import TCPConnector
 from openpyxl.styles import Alignment, PatternFill, Border, Side
 from concurrent.futures import ThreadPoolExecutor
 
+
 copyright = "© 2025 Joshua"
 
-ENCODED_AUTH_STRING = 'your base 64 authentication code'
+ENCODED_AUTH_STRING = os.environ.get('GRAYLOG_AUTH_TOKEN')
+if not ENCODED_AUTH_STRING:
+    raise EnvironmentError("GRAYLOG_AUTH_TOKEN is not set. Check your .env file.")
 AUTH = f'Basic {ENCODED_AUTH_STRING}'
 
 HEADERS = {
