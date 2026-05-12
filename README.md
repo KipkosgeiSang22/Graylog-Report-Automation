@@ -76,7 +76,7 @@ The script uses HTTP Basic Authentication. The Base64-encoded credential string 
 
                   ```python
     # In the Python script:
-    ENCODED_AUTH_STRING = 'UmVwb3J0Ok1QZHVzVHJQajFtRWFUUUV5YUtwdzlQUDZHTXJONA==' 
+    ENCODED_AUTH_STRING = '' 
     HEADERS = { 
     'Authorization': f'Basic {ENCODED_AUTH_STRING}', 
     # ... other headers
